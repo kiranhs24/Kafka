@@ -20,11 +20,6 @@ try:
             continue
         elif not msg.error():
             print('Received message: {0}'.format(msg.value()))
-        elif msg.error().code() == KafkaError._PARTITION_EOF:
-            print('End of partition reached {0}/{1}'
-                  .format(msg.topic(), msg.partition()))
-        else:
-            print('Error occured: {0}'.format(msg.error().str()))
 
 except KeyboardInterrupt:
     pass
